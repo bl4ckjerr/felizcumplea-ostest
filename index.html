@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saludo de Cumpleaños</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #001f3f;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 100px;
+            margin-top: 20px;
+            font-size: 16px;
+            padding: 10px;
+            border: 2px solid #feb47b;
+            border-radius: 8px;
+            background: #fff;
+            color: #333;
+        }
+        button {
+            background-color: #ff5733;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        button:hover {
+            background-color: #e14e2d;
+            transform: scale(1.05);
+        }
+        #cover {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ff5733;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+            animation: fadeOut 3s ease-in-out forwards;
+        }
+        @keyframes fadeOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+        @keyframes fireworks {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        @keyframes envelopeOpen {
+            0% { transform: translateY(100%); opacity: 0; }
+            50% { transform: translateY(10%); opacity: 1; }
+            100% { transform: translateY(0); }
+        }
+        #cover h1 {
+            animation: bounce 2s infinite;
+        }
+        .firework {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: radial-gradient(circle, #ff5733, rgba(255, 255, 255, 0));
+            border-radius: 50%;
+            animation: fireworks 2s ease-out infinite;
+        }
+        .envelope {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 150px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            animation: envelopeOpen 2s ease-in-out forwards;
+        }
+        .envelope h2 {
+            color: #001f3f;
+        }
+    </style>
+</head>
+<body>
+    <div id="cover">
+        <h1>¡Feliz Cumpleaños! 🎉</h1>
+        <p>Prepárate para enviar tu mejor saludo...</p>
+    </div>
+
+    <h1>¡Feliz Cumpleaños a Mí! 🎉</h1>
+    <p>Hola, ¡gracias por visitar mi página! Es mi cumpleaños y me encantaría recibir un saludo de tu parte. 😊</p>
+    <form id="greetingForm">
+        <textarea id="message" placeholder="Escribe tu saludo aquí..."></textarea><br>
+        <button type="button" onclick="sendGreeting()">Enviar Saludo</button>
+    </form>
+    <p id="confirmation" style="margin-top: 20px; color: green; display: none;">¡Gracias por tu saludo! 🎈</p>
+
+    <div id="donation">
+        <h2>¿Quieres hacer mi día aún más especial? 🤑</h2>
+        <p>¡Puedes "donar" como broma usando tu tarjeta de crédito aquí!</p>
+        <input type="text" placeholder="Número de tarjeta (solo broma)" /><br>
+        <input type="text" placeholder="Nombre en la tarjeta" /><br>
+        <input type="number" placeholder="Cantidad (USD)" /><br>
+        <button onclick="alert('¡Gracias por la broma de donación! 😂')">Donar</button>
+    </div>
+
+    <div id="travel">
+        <h2>¿Prefieres regalarme un viaje? ✈️</h2>
+        <p>Selecciona un destino turístico y sorpréndeme con un pasaje "gratis".</p>
+        <select>
+            <option value="paris">París, Francia</option>
+            <option value="tokyo">Tokio, Japón</option>
+            <option value="new_york">Nueva York, EE.UU.</option>
+            <option value="sydney">Sídney, Australia</option>
+            <option value="bali">Bali, Indonesia</option>
+        </select><br>
+        <input type="date" placeholder="Fecha de viaje" /><br>
+        <button onclick="alert('¡Gracias por planear este increíble viaje! 🌍😂')">Enviar Pasaje</button>
+    </div>
+
+    <div class="firework" style="top: 20%; left: 30%; animation-delay: 0s;"></div>
+    <div class="firework" style="top: 50%; left: 50%; animation-delay: 0.5s;"></div>
+    <div class="firework" style="top: 70%; left: 20%; animation-delay: 1s;"></div>
+
+    <div class="envelope">
+        <h2>¡Saludos para el cumpleañero!</h2>
+        <p>Nombre del cumpleañero: [Tu Nombre Aquí]</p>
+        <p>Gracias por tus mensajes y regalos. 🎁</p>
+    </div>
+
+    <script>
+        function sendGreeting() {
+            const message = document.getElementById('message').value;
+            if (message.trim() === '') {
+                alert('Por favor, escribe un mensaje antes de enviar.');
+                return;
+            }
+            
+            // Aquí podrías implementar el envío real del mensaje (como por correo o API).
+            console.log('Mensaje enviado:', message);
+            document.getElementById('confirmation').style.display = 'block';
+            document.getElementById('greetingForm').reset();
+        }
+    </script>
+</body>
+</html>
